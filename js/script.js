@@ -48,27 +48,25 @@ document.addEventListener("DOMContentLoaded", () => {
         history.scrollRestoration = 'manual';
     }
 
-        // --- 4. Слайдер картинок (плавная смена) ---
-    
-    // Находим все картинки с классом slide
-    const slides = document.querySelectorAll('.slide');
-    let currentSlide = 0; // Индекс текущей картинки
+    // --- 4. Слайдеры картинок (плавная смена) ---
+    const initSlider = (className) => {
+        const slides = document.querySelectorAll(className);
+        if (slides.length === 0) return;
+        
+        let currentSlide = 0;
 
-    // Функция переключения
-    const nextSlide = () => {
-        // Убираем класс active у текущей картинки (она начинает растворяться)
-        slides[currentSlide].classList.remove('active');
-        
-        // Вычисляем индекс следующей картинки. 
-        // Если дошли до конца, начинаем сначала (с 0)
-        currentSlide = (currentSlide + 1) % slides.length;
-        
-        // Добавляем класс active следующей картинке (она начинает проявляться)
-        slides[currentSlide].classList.add('active');
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 3000);
     };
 
-    // Запускаем функцию каждые 3 секунды (3000 миллисекунд)
-    setInterval(nextSlide, 3000);
+    initSlider('.slide');
+    
+    initSlider('.slide2');
+
+    initSlider('.slide3');
 
     // Принудительно скроллим в самый верх при загрузке
     window.scrollTo(0, 0);

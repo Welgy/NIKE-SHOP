@@ -16,14 +16,26 @@
         <nav class="nav-content">
             <ul class="nav-links">
                 <li><a href="#" class="nav-logo">Nike</a></li>
-                <li><a href="#">Мужчинам</a></li>
-                <li><a href="#">Женщинам</a></li>
-                <li><a href="#">Детям</a></li>
-                <li><a href="#">Распродажа</a></li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">Kids</a></li>
+                <li><a href="#">Sale</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="#">Поиск</a>
-                <a href="#">Корзина (0)</a>
+                <!-- Иконка поиска (лупа) -->
+                <a href="#" class="nav-icon" aria-label="Search">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </a>
+                <!-- Иконка корзины -->
+                <a href="#" class="nav-icon" aria-label="Cart">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 7V5a4 4 0 0 1 8 0v2"></path>
+                        <path d="M4 7h12l1 13H3L4 7z"></path>
+                    </svg>
+                </a>
             </div>
         </nav>
     </header>
@@ -56,7 +68,13 @@
             </div>
         </div>
 
-    <section class="hero reveal">
+                <!-- Заголовок раздела "Обувь" -->
+        <div class="section-title reveal">
+            <h2>Sneakers</h2>
+            <p>The latest drops and timeless classics.</p>
+        </div>
+
+    <section class="hero reveal first-product">
             <!-- Левая часть: Текст и кнопки -->
             <div class="hero-text">
                 <h1 class="hero-title">Air Jordan 1</h1>
@@ -66,18 +84,69 @@
                     <a href="#" class="btn-primary">Buy</a>
                 </div>
             </div>
+
+            
             
             <!-- Правая часть: Картинка -->
             <div class="hero-image-wrapper">
                 <div class="image-slider">
                     <img src="assets/front-img.webp" alt="Jordan 1 Black White" class="slide active">
-                    <img src="assets/front-img2.jpg" alt="Jordan 1 Orange" class="slide">
                     <img src="assets/front-img3.jpg" alt="Jordan 1 Red" class="slide">
                     <img src="assets/front-img4.jpg" alt="Jordan 1 Burgundy" class="slide">
                     <img src="assets/front-img5.jpg" alt="Jordan 1 Blue" class="slide">
+                    <img src="assets/front-img2.jpg" alt="Jordan 1 Orange" class="slide">
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Блок второй модели (Air Max) -->
+        <section class="hero reveal">
+            
+            <!-- Левая часть: Текст и кнопки -->
+            <div class="hero-text hero-text-down">
+                <h1 class="hero-title">Air Max 90</h1>
+                <p class="hero-subtitle">Unstoppable comfort.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-outline">Learn more</a>
+                    <a href="#" class="btn-primary">Buy</a>
                 </div>
             </div>
             
+            <!-- Правая часть: Слайдер второй модели -->
+            <div class="hero-image-wrapper">
+                <div class="image-slider">
+                    <!-- Важно: тут класс slide2 -->
+                    <img src="assets/front2-img.webp" alt="Nike Air Max 90 White" class="slide2 active">
+                    <img src="assets/front2-img2.webp" alt="Nike Air Max 90 Black" class="slide2">
+                    <img src="assets/front2-img3.webp" alt="Nike Air Max 90 Grey" class="slide2">
+                    <img src="assets/front2-img4.webp" alt="Nike Air Max 90 Silver" class="slide2">
+                    <img src="assets/front2-img5.webp" alt="Nike Air Max 90 Silver" class="slide2">
+                </div>
+            </div>
+        </section>
+
+                <!-- 4. Блок третьей модели -->
+        <section class="hero reveal">
+            
+            <div class="hero-text">
+                <h1 class="hero-title">Air VaporMax</h1>
+                <p class="hero-subtitle">Lightweight. Responsive. Unstoppable.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-outline">Learn more</a>
+                    <a href="#" class="btn-primary">Buy</a>
+                </div>
+            </div>
+            
+            <div class="hero-image-wrapper">
+                <div class="image-slider">
+                    <!-- У этих картинок класс slide3 -->
+                    <img src="assets/front3-img.webp" alt="Nike VaporMax" class="slide3 active">
+                    <img src="assets/front3-img2.webp" alt="Nike VaporMax" class="slide3">
+                    <img src="assets/front3-img3.webp" alt="Nike VaporMax" class="slide3">
+                    <img src="assets/front3-img4.webp" alt="Nike VaporMax" class="slide3">
+                    <img src="assets/front3-img5.webp" alt="Nike VaporMax" class="slide3">
+                </div>
+            </div>
         </section>
 
     </main>
