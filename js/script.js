@@ -14,10 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         revealElements.forEach((element) => {
             // Узнаем, на каком расстоянии от верха экрана находится элемент
             const elementTop = element.getBoundingClientRect().top;
-            
-            // Если элемент показался в зоне видимости (с отступом 100px снизу)...
             if (elementTop < windowHeight - 200) {
-                // ...добавляем ему класс "active" (он запустит CSS-анимацию)
                 element.classList.add("active");
             }
         });
@@ -34,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const navBar = document.querySelector(".global-nav");
 
     window.addEventListener("scroll", () => {
-        // Если пользователь прокрутил страницу больше чем на 50 пикселей...
         if (window.scrollY > 50) {
             navBar.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
             navBar.style.backdropFilter = "blur(10px)";
