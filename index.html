@@ -1,1 +1,70 @@
-<h1>Привет, мир!</h1>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Официальный сайт Nike. Вдохновляйся и покупай лучшие кроссовки.">
+    <title>Nike. Just Do It.</title>
+    
+    <!-- Подключаем стили -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Навигация -->
+    <header class="global-nav">
+        <nav class="nav-content">
+            <ul class="nav-links">
+                <li><a href="#" class="nav-logo">Nike</a></li>
+                <li><a href="#">Мужчинам</a></li>
+                <li><a href="#">Женщинам</a></li>
+                <li><a href="#">Детям</a></li>
+                <li><a href="#">Распродажа</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#">Поиск</a>
+                <a href="#">Корзина (0)</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Основной контент -->
+    <main>
+        
+        <!-- 1. Главный баннер (Bento-сетка) -->
+        <section class="bento-grid reveal">
+            <!-- Единая картинка-баннер -->
+            <img src="assets/hero-banner.jpg" alt="Nike Banner" class="bento-bg-image">
+            
+            <!-- Живой текст поверх картинки -->
+            <div class="bento-overlay">
+                <div class="bento-text-block">
+                    <h2>Gifts they'll love.</h2>
+                    <p>Find their perfect match this holiday.</p>
+                    <a href="#" class="btn-primary">Shop gifts</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Блок Air Max 1 (теперь он ниже) -->
+        <section class="hero">
+            <div class="hero-text">
+                <h1 class="hero-title">Air Max 1</h1>
+                <p class="hero-subtitle">Hello.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-outline">Подробнее</a>
+                    <a href="#" class="btn-primary">Купить</a>
+                </div>
+            </div>
+            
+            <div class="hero-image-wrapper reveal">
+                <img src="assets/front-img.avif" alt="Кроссовки Nike Air Max 1">
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Подключаем скрипты -->
+    <script src="js/script.js" defer></script>
+</body>
+</html>
