@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Nike</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Навигация -->
+    <header class="global-nav">
+        <nav class="nav-content">
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-logo">Nike</a></li>
+                
+                <!-- Пункт с выпадающим меню -->
+                <li class="nav-item-dropdown">
+                    <a href="#">Men</a>
+                    
+                    <!-- Само мега-меню -->
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            
+                            <!-- Колонка 1: Обувь -->
+                            <div class="mega-column">
+                                <h4>Footwear</h4>
+                                <a href="#">Sneakers</a>
+                                <a href="#">Boots</a>
+                                <a href="#">Slippers</a>
+                            </div>
+                            
+                            <!-- Колонка 2: Одежда -->
+                            <div class="mega-column">
+                                <h4>Apparel</h4>
+                                <a href="#">T-Shirts</a>
+                                <a href="#">Hoodies</a>
+                                <a href="#">Jackets</a>
+                                <a href="#">Shorts</a>
+                                <a href="#">Pants</a>
+                                <a href="#">Shirts</a>
+                            </div>
+                            
+                            <!-- Колонка 3: Аксессуары -->
+                            <div class="mega-column">
+                                <h4>Accessories</h4>
+                                <a href="#">Hats & Caps</a>
+                                <a href="#">Bags</a>
+                                <a href="#">Backpacks</a>
+                                <a href="#">Socks</a>
+                                <a href="#">Balls</a>
+                                <a href="#">Water Bottles</a>
+                                <a href="#">Training Gloves</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+                                <li class="nav-item-dropdown">
+                    <a href="#">Women</a>
+                    <!-- Меню (можешь поменять ссылки внутри) -->
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-column">
+                                <h4>Featured</h4>
+                                <a href="#">New Releases</a>
+                                <a href="#">Best Sellers</a>
+                            </div>
+                            <div class="mega-column">
+                                <h4>Shoes</h4>
+                                <a href="#">Air Max</a>
+                                <a href="#">Air Jordan</a>
+                            </div>
+                            <div class="mega-column">
+                                <h4>Clothing</h4>
+                                <a href="#">Tops</a>
+                                <a href="#">Leggings</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#">Kids</a></li>
+                <li><a href="#">Sale</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="nav-icon" aria-label="Search">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </a>
+                <a href="#" class="nav-icon" aria-label="Cart">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7V5a4 4 0 0 1 8 0v2"></path><path d="M4 7h12l1 13H3L4 7z"></path></svg>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Основной контент страницы магазина -->
+    <main>
+        <!-- Блок категорий -->
+        <section class="category-section">
+            <h1 class="shop-title">All Products</h1>
+            
+            <!-- Сетка товаров (сюда JS будет вставлять карточки) -->
+            <div class="product-grid" id="product-grid">
+                <!-- Карточки сгенерируются скриптом -->
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js" defer></script>
+</body>
+</html>

@@ -379,6 +379,224 @@ a {
     color: var(--text-muted);
 }
 
+/* --- Блок категорий --- */
+.category-section {
+    background-color: #ffffff;
+    padding: 60px 20px;
+}
+
+.category-container {
+    max-width: 1024px; /* Ограничиваем ширину, как у навигации */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Распределяем 3 карточки по ширине */
+    gap: 20px; /* Расстояние между карточками */
+}
+
+.category-card {
+    flex: 1; /* Карточки занимают одинаковое место */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-main);
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px); /* Карточка чуть подпрыгивает при наведении */
+}
+
+/* Контейнер для картинки */
+.category-image-wrapper {
+    width: 100%;
+    height: 200px; /* Фиксированная высота для всех картинок */
+    background-color: #ffffff; /* Светло-серый фон (как у Apple) */
+    border-radius: 18px; /* Скругленные углы */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+}
+
+/* Сама картинка внутри */
+.category-image-wrapper img {
+    width: 80%; /* Картинка не на весь блок, чтобы было видно фон */
+    height: 80%;
+    object-fit: contain; /* Картинка не обрезается */
+    transition: transform 0.4s ease;
+}
+
+/* При наведении на карточку картинка внутри чуть увеличивается */
+.category-card:hover .category-image-wrapper img {
+    transform: scale(1.1);
+}
+
+/* Текст категории */
+.category-card h3 {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+/* --- Заголовок страницы магазина --- */
+.shop-title {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
+    color: var(--text-main);
+}
+
+.nav-item-dropdown {
+    position: static; /* Важно для полноэкранного меню */
+}
+
+/* Само окно меню */
+.mega-menu {
+    position: absolute;
+    top: 44px; /* Высота нашей навигации */
+    left: 0;
+    width: 100%;
+    background-color: #ffffff; /* Белый фон */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    
+    /* Скрываем его по умолчанию */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 99;
+}
+
+/* ПОКАЗЫВАЕМ меню при наведении на .nav-item-dropdown */
+.nav-item-dropdown:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Внутренняя сетка меню (чтобы колонки стояли в ряд) */
+.mega-menu-content {
+    max-width: 1024px; /* Ограничиваем ширину контента */
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    gap: 60px; /* Расстояние между колонками */
+}
+
+/* Стили колонок */
+.mega-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mega-column h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+.mega-column a {
+    font-size: 14px;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+}
+
+.mega-column a:hover {
+    color: var(--accent-blue); /* Синий цвет при наведении на ссылку */
+}
+
+/* --- Сетка товаров (Product Grid) --- */
+.product-grid {
+    display: grid;
+    /* Автоматически создает колонки. На ПК будет 4 колонки, на телефоне — 1 или 2 */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 60px 20px;
+}
+
+/* Карточка товара */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--text-main);
+    will-change: transform, opacity;
+    
+    /* Начальное состояние для анимации появления */
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    
+    /* Вот здесь задаем скорость появления (1.5 секунды) */
+    transition: opacity 3s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Конечное состояние (когда JS добавляет класс active) */
+.product-card.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Эффект при наведении (оставляем как было) */
+.product-card:hover {
+    transform: translateY(-5px) scale(1.02); /* Чуть увеличивается при наведении */
+    transition: transform 0.3s ease; /* При наведении работает быстрее */
+}
+
+/* Контейнер для картинки */
+.product-image {
+    width: 100%;
+    height: 250px; /* Фиксированная высота */
+    background-color: #ffffff; /* Светло-серый фон, как в каталоге Nike */
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 15px;
+    padding: 20px; /* Отступы, чтобы кроссовок не прилипал к краям */
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Картинка не обрезается */
+    transition: transform 0.4s ease;
+}
+
+/* Увеличение картинки при наведении */
+.product-card:hover .product-image img {
+    transform: scale(1.08);
+}
+
+/* Текст под картинкой */
+.product-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.product-category {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: 600;
+}
+
 /* --- Адаптивность для мобильных --- */
 @media (max-width: 768px) {
     .bento-text-block h2 { font-size: 28px; }
