@@ -8,6 +8,9 @@
 </head>
 <body>
 
+    <!-- Затемнение для меню -->
+    <div class="menu-backdrop"></div>
+
 <!-- Навигация -->
     <header class="global-nav">
         <nav class="nav-content">
@@ -25,32 +28,27 @@
                             <!-- Колонка 1: Обувь -->
                             <div class="mega-column">
                                 <h4>Footwear</h4>
-                                <a href="#">Sneakers</a>
-                                <a href="#">Boots</a>
-                                <a href="#">Slippers</a>
+                                <!-- Внутри выпадающего меню Men -> Footwear -->
+                              <a href="shop.html?category=sneakers&gender=men">Sneakers</a>
+                              <a href="shop.html?category=boots&gender=men">Boots</a>
+                              <a href="shop.html?category=slides&gender=men">Slippers</a>
                             </div>
                             
                             <!-- Колонка 2: Одежда -->
                             <div class="mega-column">
                                 <h4>Apparel</h4>
-                                <a href="#">T-Shirts</a>
-                                <a href="#">Hoodies</a>
-                                <a href="#">Jackets</a>
-                                <a href="#">Shorts</a>
-                                <a href="#">Pants</a>
-                                <a href="#">Shirts</a>
+                                <!-- В колонке Apparel -->
+                                <a href="shop.html?category=tshirts">T-Shirts</a>
+                                <a href="shop.html?category=hoodies">Hoodies</a>
+                                <a href="shop.html?category=jackets">Jackets</a>
                             </div>
                             
                             <!-- Колонка 3: Аксессуары -->
                             <div class="mega-column">
                                 <h4>Accessories</h4>
-                                <a href="#">Hats & Caps</a>
-                                <a href="#">Bags</a>
-                                <a href="#">Backpacks</a>
-                                <a href="#">Socks</a>
-                                <a href="#">Balls</a>
-                                <a href="#">Water Bottles</a>
-                                <a href="#">Training Gloves</a>
+                                <a href="shop.html?category=bottles">Water Bottles</a>
+                                <a href="shop.html?category=backpacks">Backpacks</a>
+                                <a href="shop.html?category=bags">Bags</a>
                             </div>
 
                         </div>
@@ -62,24 +60,24 @@
                     <div class="mega-menu">
                         <div class="mega-menu-content">
                             <div class="mega-column">
-                                <h4>Featured</h4>
-                                <a href="#">New Releases</a>
-                                <a href="#">Best Sellers</a>
+                                <h4>Footwear</h4>
+                               <a href="shop.html?category=sneakers&gender=women">Sneakers</a>
+                              <a href="shop.html?category=slides&gender=women">Slippers</a>
                             </div>
                             <div class="mega-column">
-                                <h4>Shoes</h4>
-                                <a href="#">Air Max</a>
-                                <a href="#">Air Jordan</a>
+                                <h4>Apparel</h4>
+                                <a href="shop.html?category=tshirts">T-Shirts</a>
+                                <a href="shop.html?category=hoodies">Hoodies</a>
                             </div>
                             <div class="mega-column">
-                                <h4>Clothing</h4>
-                                <a href="#">Tops</a>
-                                <a href="#">Leggings</a>
+                                <h4>Accessories</h4>
+                                <a href="shop.html?category=bottles">Water Bottles</a>
+                                <a href="shop.html?category=backpacks">Backpacks</a>
+                                <a href="shop.html?category=bags">Bags</a>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li><a href="#">Kids</a></li>
                 <li><a href="#">Sale</a></li>
             </ul>
             <div class="nav-actions">
@@ -97,7 +95,7 @@
     <main>
         <!-- Блок категорий -->
         <section class="category-section">
-            <h1 class="shop-title">All Products</h1>
+            <h1 class="shop-title" id="shop-page-title">All Products</h1>
             
             <!-- Сетка товаров (сюда JS будет вставлять карточки) -->
             <div class="product-grid" id="product-grid">

@@ -597,6 +597,28 @@ a {
     font-weight: 600;
 }
 
+/* --- Затемнение фона при открытии меню --- */
+.menu-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Черный с прозрачностью 40% */
+    z-index: 90; /* Ниже навигации (100), но выше контента */
+    
+    /* Скрываем по умолчанию */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Класс, который включает затемнение */
+.menu-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* --- Адаптивность для мобильных --- */
 @media (max-width: 768px) {
     .bento-text-block h2 { font-size: 28px; }
