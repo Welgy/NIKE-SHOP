@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // --- 1. Плавное появление элементов при скролле ---
+    // 1. Плавное появление элементов при скролле
     
     // Функция, которая заново собирает все элементы с классом "reveal"
     const updateRevealElements = () => {
@@ -24,14 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    // Запускаем проверку при скролле (каждый раз, когда двигаем колесико)
+    // Запускаем проверку при скролле
     window.addEventListener("scroll", checkScroll);
-    
-    // Запускаем проверку один раз сразу при загрузке (вдруг элемент уже виден)
+
     checkScroll();
 
-
-        // --- 2. Эффект "Матового стекла" для навигации ---
     const navBar = document.querySelector(".global-nav");
 
     window.addEventListener("scroll", () => {
@@ -46,13 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // --- 3. Исправление прыжка страницы при перезагрузке ---
-    // Отключаем восстановление скролла браузером
+    // 3. Исправление прыжка страницы при перезагрузке
     if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
     }
 
-    // --- 4. Слайдеры картинок (плавная смена) ---
+    // 4. Слайдеры картинок 
     const initSlider = (className) => {
         const slides = document.querySelectorAll(className);
         if (slides.length === 0) return;
@@ -72,15 +68,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initSlider('.slide3');
 
-    // Принудительно скроллим в самый верх при загрузке
     window.scrollTo(0, 0);
 
-    // --- 5. Генерация каталога товаров с фильтрацией ---
     const productGrid = document.getElementById('product-grid');
-    const pageTitle = document.getElementById('shop-page-title'); // Наш заголовок H1
+    const pageTitle = document.getElementById('shop-page-title');
 
     if (productGrid) {
-         // 1. Твой полный массив товаров
+         // 1. Полный массив товаров
   const products = [
 
     { img: 'front2-img.webp', title: 'Nike Air Max Moto 2K Grey', categories: ["sneakers", "airmax"], gender: "men", categoryText: "Men's Shoes", price: '$130' },
@@ -249,38 +243,30 @@ document.addEventListener("DOMContentLoaded", () => {
         // 3. Читаем URL (какой фильтр выбран)
         const urlParams = new URLSearchParams(window.location.search);
         const categoryFilter = urlParams.get('category'); 
-        const genderFilter = urlParams.get('gender'); // Читаем пол (women или men)
+        const genderFilter = urlParams.get('gender');
 
         // 4. Фильтруем товары
         let filteredProducts = products;
         
-        // Фильтр по категории (например, Sneakers, Boots, T-Shirts)
+        // Фильтр по категории
         if (categoryFilter) {
             filteredProducts = filteredProducts.filter(product => product.categories.includes(categoryFilter));
         }
         
         if (genderFilter) {
             filteredProducts = filteredProducts.filter(product => {
-                // 1. Если пол совпадает — оставляем
                 if (product.gender === genderFilter) return true;
-                
-                // 2. Если пол НЕ указан (аксессуары, бутылки) — оставляем в обоих разделах
                 if (!product.gender) return true;
-                
-                // 3. Если пол противоположный (мужской для Women) — скрываем
                 return false;
             });
         }
 
             // Меняем заголовок в зависимости от фильтров
         if (pageTitle) {
-            // 1. Формируем префикс (Men's или Women's), если пол выбран
             let prefix = "";
             if (genderFilter === 'men') prefix = "Men's ";
             else if (genderFilter === 'women') prefix = "Women's ";
-
-            // 2. Формируем название категории
-            let categoryName = "All Products"; // По умолчанию
+            let categoryName = "All Products";
 
             if (categoryFilter === 'sneakers') categoryName = "Sneakers";
             else if (categoryFilter === 'airmax') categoryName = "Air Max";
@@ -293,9 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
             else if (categoryFilter === 'bottles') categoryName = "Water Bottles";
             else if (categoryFilter === 'backpacks') categoryName = "Backpacks";
             else if (categoryFilter === 'bags') categoryName = "Bags";
-            
-            // 3. Склеиваем префикс и категорию
-            // Если это аксессуары (бутылки, сумки), пол обычно не пишут, но можно оставить
+
             if (categoryFilter === 'bottles' || categoryFilter === 'backpacks' || categoryFilter === 'bags') {
                 pageTitle.textContent = categoryName;
             } else {
@@ -335,14 +319,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (backdrop) {
         navItems.forEach(item => {
-            // Когда мышка наводится на "Men" или "Women"
             item.addEventListener('mouseenter', () => {
-                backdrop.classList.add('active'); // Включаем затемнение
+                backdrop.classList.add('active');
             });
             
             // Когда мышка уходит с пункта меню
             item.addEventListener('mouseleave', () => {
-                backdrop.classList.remove('active'); // Выключаем затемнение
+                backdrop.classList.remove('active');
             });
         });
     }
