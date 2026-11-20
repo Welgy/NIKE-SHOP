@@ -313,20 +313,29 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-        // --- 6. Затемнение фона при открытии выпадающего меню ---
+    // --- 6. Затемнение фона и закрытие меню ---
     const navItems = document.querySelectorAll('.nav-item-dropdown');
     const backdrop = document.querySelector('.menu-backdrop');
 
     if (backdrop) {
+        // Открываем меню при наведении (или клике) на пункт
         navItems.forEach(item => {
             item.addEventListener('mouseenter', () => {
                 backdrop.classList.add('active');
             });
             
-            // Когда мышка уходит с пункта меню
             item.addEventListener('mouseleave', () => {
-                backdrop.classList.remove('active');
+                // Проверяем, не навели ли мы мышку на само выпадающее меню
+                setTimeout(() => {
+                    if (!item.matches(':hover')) {
+                        backdrop.classList.remove('active');
+                    }
+                }, 100);
             });
+        });
+
+        backdrop.addEventListener('click', () => {
+            backdrop.classList.remove('active');
         });
     }
 });
