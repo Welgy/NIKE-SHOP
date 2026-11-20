@@ -313,29 +313,69 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- 6. Затемнение фона и закрытие меню ---
-    const navItems = document.querySelectorAll('.nav-item-dropdown');
+    // 6. Управление меню и затемнением
+    const dropdownItems = document.querySelectorAll('.nav-item-dropdown');
+    const dropdownToggles = document.querySelectorAll('.nav-item-dropdown > a');
     const backdrop = document.querySelector('.menu-backdrop');
 
-    if (backdrop) {
-        // Открываем меню при наведении (или клике) на пункт
-        navItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                backdrop.classList.add('active');
-            });
-            
-            item.addEventListener('mouseleave', () => {
-                // Проверяем, не навели ли мы мышку на само выпадающее меню
-                setTimeout(() => {
-                    if (!item.matches(':hover')) {
-                        backdrop.classList.remove('active');
-                    }
-                }, 100);
-            });
+    // Функция закрытия
+    const closeAllMenus = () => {
+        document.querySelectorAll('.mega-menu').forEach(menu => menu.classList.remove('open'));
+        if (backdrop) backdrop.classList.remove('active');
+    };
+
+    // Логика пк
+    dropdownItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            if (window.innerWidth > 768) {
+                // Открываем меню и включаем затемнение
+                const menu = item.querySelector('.mega-menu');
+                if (menu) menu.classList.add('open');
+                if (backdrop) backdrop.classList.add('active');
+            }
         });
 
-        backdrop.addEventListener('click', () => {
-            backdrop.classList.remove('active');
+        item.addEventListener('mouseleave', () => {
+            if (window.innerWidth > 768) {
+                // Закрываем всё при уходе мышки
+                closeAllMenus();
+            }
         });
+    });
+
+    // Логика телефона
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            if (window.innerWidth > 768) return; 
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            const menu = toggle.nextElementSibling;
+
+            if (menu.classList.contains('open')) {
+                closeAllMenus();
+            } else {
+
+                closeAllMenus();
+
+                setTimeout(() => {
+                    menu.classList.add('open');
+                    if (backdrop) backdrop.classList.add('active');
+                }, 50); 
+            }
+        });
+    });
+
+    if (backdrop) {
+        backdrop.addEventListener('click', closeAllMenus);
     }
+
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            if (!e.target.closest('.nav-item-dropdown')) {
+                closeAllMenus();
+            }
+        }
+    });
 });
