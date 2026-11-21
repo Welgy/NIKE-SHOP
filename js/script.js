@@ -354,17 +354,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // Логика для телефона
     dropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', (e) => {
+            // Если это ПК, клик игнорируем
             if (window.innerWidth > 768) return; 
 
             e.preventDefault();
-            e.stopPropagation();
+            e.stopPropagation(); // Не даем клику уйти на документ
 
             const menu = toggle.nextElementSibling;
-
+            
+            // ПРОВЕРКА: Если меню уже открыто, закрываем его
             if (menu.classList.contains('open')) {
                 closeAllMenus();
             } else {
-
+                // Иначе — закрываем всё старое, открываем новое
                 closeAllMenus();
                 menu.classList.add('open');
                 if (backdrop) backdrop.classList.add('active');

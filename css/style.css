@@ -767,16 +767,13 @@ a {
         height: auto;
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         z-index: 99;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+        
+        /* Скрыто по умолчанию */
+        display: none; 
     }
 
     .mega-menu.open {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
+        display: block; /* Открывается через JS */
     }
 
     .mega-menu-content {
