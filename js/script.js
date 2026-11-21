@@ -29,20 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     checkScroll();
 
-    const navBar = document.querySelector(".global-nav");
-
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-            navBar.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
-            navBar.style.backdropFilter = "blur(10px)";
-            navBar.style.webkitBackdropFilter = "blur(10px)";
-        } else {
-            navBar.style.backgroundColor = "#000000";
-            navBar.style.backdropFilter = "none";
-            navBar.style.webkitBackdropFilter = "none";
-        }
-    });
-
     // 3. Исправление прыжка страницы при перезагрузке
     if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
