@@ -293,7 +293,16 @@ document.addEventListener("DOMContentLoaded", () => {
             productGrid.insertAdjacentHTML('beforeend', cardHTML);
             
             const newCard = productGrid.lastElementChild;
-            const delay = (index % 3) * 0.2; 
+
+            let delay;
+            if (window.innerWidth <= 768) {
+                // На телефоне 2 колонки
+                delay = (index % 2) * 0.2; 
+            } else {
+                // На ПК 3 колонки
+                delay = (index % 3) * 0.2; 
+            }
+            
             newCard.style.transitionDelay = `${delay}s`;
         });
 
