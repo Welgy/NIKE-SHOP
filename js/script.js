@@ -327,17 +327,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const dropdownToggles = document.querySelectorAll('.nav-item-dropdown > a');
     const backdrop = document.querySelector('.menu-backdrop');
 
-    // Функция полного закрытия
+    // Функция закрытия
     const closeAllMenus = () => {
         document.querySelectorAll('.mega-menu').forEach(menu => menu.classList.remove('open'));
         if (backdrop) backdrop.classList.remove('active');
-        document.body.classList.remove('no-scroll');
     };
 
-    // Логика для пк
+    // Логика пк
     dropdownItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
             if (window.innerWidth > 768) {
+                // Открываем меню и включаем затемнение
                 const menu = item.querySelector('.mega-menu');
                 if (menu) menu.classList.add('open');
                 if (backdrop) backdrop.classList.add('active');
@@ -346,43 +346,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
         item.addEventListener('mouseleave', () => {
             if (window.innerWidth > 768) {
+                // Закрываем всё при уходе мышки
                 closeAllMenus();
             }
         });
     });
 
-    // Логика для телефона
+    // Логика телефона
     dropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', (e) => {
-            // Если это ПК, клик игнорируем
             if (window.innerWidth > 768) return; 
 
             e.preventDefault();
             e.stopPropagation();
 
             const menu = toggle.nextElementSibling;
-            
+
             if (menu.classList.contains('open')) {
                 closeAllMenus();
             } else {
-                closeAllMenus();
 
-                if (backdrop) backdrop.classList.add('active');
-                document.body.classList.add('no-scroll');
+                closeAllMenus();
 
                 setTimeout(() => {
                     menu.classList.add('open');
-                }, 50);
+                    if (backdrop) backdrop.classList.add('active');
+                }, 50); 
             }
         });
     });
 
-    // Закрытие при клике на фон
     if (backdrop) {
         backdrop.addEventListener('click', closeAllMenus);
     }
 
-    // Закрытие при клике на пустое место
     document.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
             if (!e.target.closest('.nav-item-dropdown')) {
