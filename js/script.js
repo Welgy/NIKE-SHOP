@@ -327,17 +327,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const dropdownToggles = document.querySelectorAll('.nav-item-dropdown > a');
     const backdrop = document.querySelector('.menu-backdrop');
 
-    // Функция закрытия
+    // Функция полного закрытия
     const closeAllMenus = () => {
         document.querySelectorAll('.mega-menu').forEach(menu => menu.classList.remove('open'));
         if (backdrop) backdrop.classList.remove('active');
+        document.body.classList.remove('no-scroll');
     };
 
-    // Логика пк
+    // Логика для пк
     dropdownItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
             if (window.innerWidth > 768) {
-                // Открываем меню и включаем затемнение
                 const menu = item.querySelector('.mega-menu');
                 if (menu) menu.classList.add('open');
                 if (backdrop) backdrop.classList.add('active');
@@ -346,13 +346,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         item.addEventListener('mouseleave', () => {
             if (window.innerWidth > 768) {
-                // Закрываем всё при уходе мышки
                 closeAllMenus();
             }
         });
     });
 
-    // Логика телефона
+    // Логика для телефона
     dropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', (e) => {
             if (window.innerWidth > 768) return; 
@@ -367,19 +366,19 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
 
                 closeAllMenus();
-
-                setTimeout(() => {
-                    menu.classList.add('open');
-                    if (backdrop) backdrop.classList.add('active');
-                }, 50); 
+                menu.classList.add('open');
+                if (backdrop) backdrop.classList.add('active');
+                document.body.classList.add('no-scroll');
             }
         });
     });
 
+    // Закрытие при клике на фон
     if (backdrop) {
         backdrop.addEventListener('click', closeAllMenus);
     }
 
+    // Закрытие при клике на пустое место
     document.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
             if (!e.target.closest('.nav-item-dropdown')) {
