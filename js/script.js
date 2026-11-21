@@ -367,11 +367,12 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 closeAllMenus();
 
+                if (backdrop) backdrop.classList.add('active');
+                document.body.classList.add('no-scroll');
+
                 setTimeout(() => {
                     menu.classList.add('open');
-                    if (backdrop) backdrop.classList.add('active');
-                    document.body.classList.add('no-scroll');
-                }, 300); 
+                }, 50);
             }
         });
     });
